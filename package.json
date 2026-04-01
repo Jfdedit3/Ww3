@@ -1,0 +1,43 @@
+{
+  "name": "ww3-conflict-of-nations-desktop",
+  "version": "1.0.0",
+  "description": "Windows desktop wrapper for Conflict of Nations.",
+  "main": "main.js",
+  "author": "Jfdedit3",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win nsis portable"
+  },
+  "build": {
+    "appId": "com.jfdedit3.ww3",
+    "productName": "Conflict of Nations WW3",
+    "asar": true,
+    "files": [
+      "main.js",
+      "preload.js",
+      "package.json"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Conflict of Nations WW3"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "artifactName": "${productName}-${version}-${target}.${ext}"
+    }
+  },
+  "devDependencies": {
+    "electron": "^35.1.5",
+    "electron-builder": "^24.13.3"
+  }
+}
